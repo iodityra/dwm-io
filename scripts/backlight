@@ -1,0 +1,38 @@
+#!/bin/bash
+
+chmod 777 /sys/devices/pci0000:00/0000:00:02.0/drm/card*/card*-eDP-1/intel_backlight/brightness
+
+bd=/sys/devices/pci0000:00/0000:00:02.0/drm/card*/card*-eDP-1/intel_backlight/brightness
+
+bdv=$(cat $bd)
+
+case $1 in
+	up)
+		if [ $bdv -gt 1400 ]
+		then
+			echo $(( 1500 )) > $bd
+		else
+			echo $(( bdv + 100 )) > $bd
+		fi
+		cat $bd
+	;;
+	down)
+		if [ $bdv -lt 101 ]
+		then
+			echo $(( 1 )) > $bd
+		else
+			echo $(( bdv - 100 )) > $bd
+		fi
+		cat $bd
+	;;
+	max)
+		echo $(( 1500 )) > $bd
+		cat $bd
+	;;
+	min)
+		echo $(( 1 )) > $bd
+		cat $bd
+	;;
+	*)
+	echo "$bdv"
+esac

@@ -1,30 +1,26 @@
 --- dwm.c
 +++ dwm.c
-@@ -199,6 +199,7 @@ static void sendmon(Client *c, Monitor *m);
- static void setclientstate(Client *c, long state);
- static void setfocus(Client *c);
- static void setfullscreen(Client *c, int fullscreen);
-+static void fullscreen(const Arg *arg);
- static void setlayout(const Arg *arg);
- static void setmfact(const Arg *arg);
- static void setup(void);
-@@ -1497,6 +1498,19 @@ setfullscreen(Client *c, int fullscreen)
- 	}
+@@ -1531,6 +1534,23 @@ setlayout(const Arg *arg)
+ 		drawbar(selmon);
  }
  
-+Layout *last_layout;
-+void
-+fullscreen(const Arg *arg)
-+{
-+	if (selmon->showbar) {
-+		for(last_layout = (Layout *)layouts; last_layout != selmon->lt[selmon->sellt]; last_layout++);
-+		setlayout(&((Arg) { .v = &layouts[2] }));
-+	} else {
-+		setlayout(&((Arg) { .v = last_layout }));
-+	}
-+	togglebar(arg);
++void setcfact(const Arg *arg) {
++	float f;
++	Client *c;
++
++	c = selmon->sel;
++
++	if(!arg || !c || !selmon->lt[selmon->sellt]->arrange)
++		return;
++	f = arg->f + c->cfact;
++	if(arg->f == 0.0)
++		f = 1.0;
++	else if(f < 0.25 || f > 4.0)
++		return;
++	c->cfact = f;
++	arrange(selmon);
 +}
 +
+ /* arg > 1.0 will set mfact absolutly */
  void
- setlayout(const Arg *arg)
- {
+ setmfact(const Arg *arg)
