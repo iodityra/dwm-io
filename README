@@ -44,5 +44,9 @@ like this in your .xinitrc:
 
 Configuration
 -------------
-The configuration of dwm is done by creating a custom config.h
-and (re)compiling the source code.
+configured by iosue
+in order to get this working:
+
+1) rename dwm-io to .dwm
+
+2) add commands and applications to run at startup to .dwm/autostart.sh
