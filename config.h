@@ -3,7 +3,6 @@
 /* include */
 #include <X11/XF86keysym.h>
 #include "selfrestart.c"
-#include "moveresize.c"
 
 /* appearance */
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
@@ -133,14 +132,6 @@ static Key keys[] = {
  	{ MODKEY,            	XK_m,      			setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,            	XK_f,      			fullscreen,     {0} },
 	{ MODKEY|ControlMask,	XK_space,  			setlayout,      {0} },
-	//{ MODKEY,		XK_Down,			moveresize,	{.v = (int []){ 0, 25, 0, 0 }}},
-	//{ MODKEY,		XK_Up,				moveresize,	{.v = (int []){ 0, -25, 0, 0 }}},
-	//{ MODKEY,		XK_Right,			moveresize,	{.v = (int []){ 25, 0, 0, 0 }}},
-	//{ MODKEY,		XK_Left,			moveresize,	{.v = (int []){ -25, 0, 0, 0 }}},
-	//{ MODKEY|ShiftMask,	XK_Down,			moveresize,	{.v = (int []){ 0, 0, 0, 25 }}},
-	//{ MODKEY|ShiftMask,	XK_Up,				moveresize,	{.v = (int []){ 0, 0, 0, -25 }}},
-	//{ MODKEY|ShiftMask,	XK_Right,			moveresize,	{.v = (int []){ 0, 0, 25, 0 }}},
-	//{ MODKEY|ShiftMask,	XK_Left,			moveresize,	{.v = (int []){ 0, 0, -25, 0 }}},
 
 	// tags
 	TAGKEYS(             	XK_1,                      	0)
