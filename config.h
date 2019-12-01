@@ -3,6 +3,7 @@
 /* include */
 #include <X11/XF86keysym.h>
 #include "selfrestart.c"
+#include "moveresize.c"
 
 /* appearance */
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
@@ -74,13 +75,13 @@ static const char *firefox[] 		= { "/usr/bin/firefox", NULL };
 static const char *upvol[]   		= { "/usr/bin/pactl", "set-sink-volume", "0", "+5%", NULL };
 static const char *downvol[] 		= { "/usr/bin/pactl", "set-sink-volume", "0", "-5%", NULL };
 static const char *mutevol[] 		= { "/usr/bin/pactl", "set-sink-mute", "0", "toggle", NULL };
-static const char *upbright[] 		= { "/home/iodityra/.dwm/scripts/backlight", "up", NULL };
-static const char *downbright[] 	= { "/home/iodityra/.dwm/scripts/backlight", "down", NULL };
-static const char *maxbright[] 		= { "/home/iodityra/.dwm/scripts/backlight", "max", NULL };
-static const char *minbright[] 		= { "/home/iodityra/.dwm/scripts/backlight", "min", NULL };
-static const char *screenshot[] 	= { "/home/iodityra/.dwm/scripts/scrshot", "reg", NULL };
-static const char *screenshotalt[] 	= { "~/.dwm/scripts/scrshot", "alt", NULL };
-static const char *resolution[] 	= { "/home/iodityra/.dwm/scripts/res", NULL };
+static const char *upbright[] 		= { "/home/iodityra/.dwm/bin/backlight", "up", NULL };
+static const char *downbright[] 	= { "/home/iodityra/.dwm/bin/backlight", "down", NULL };
+static const char *maxbright[] 		= { "/home/iodityra/.dwm/bin/backlight", "max", NULL };
+static const char *minbright[] 		= { "/home/iodityra/.dwm/bin/backlight", "min", NULL };
+static const char *screenshot[] 	= { "/home/iodityra/.dwm/bin/scrshot", "reg", NULL };
+static const char *screenshotalt[] 	= { "/home/iodityra/.dwm/bin/scrshot", "alt", NULL };
+static const char *resolution[] 	= { "/home/iodityra/.dwm/bin/res", NULL };
 
 static Key keys[] = {
 	/* modifier          	key        			function        argument */
@@ -109,10 +110,10 @@ static Key keys[] = {
 	{ MODKEY,            	XK_l,	   			setmfact,       {.f = +0.05} },
 	{ MODKEY,            	XK_k,      			setcfact,       {.f = -0.25} },
 	{ MODKEY,            	XK_j,   			setcfact,       {.f = +0.25} },
-	{ MODKEY,            	XK_Left,      			setmfact,       {.f = -0.05} },
-	{ MODKEY,            	XK_Right,   			setmfact,       {.f = +0.05} },
-	{ MODKEY,            	XK_Up,      			setcfact,       {.f = -0.25} },
-	{ MODKEY,            	XK_Down,   			setcfact,       {.f = +0.25} },
+	//{ MODKEY,            	XK_Left,      			setmfact,       {.f = -0.05} },
+	//{ MODKEY,            	XK_Right,   			setmfact,       {.f = +0.05} },
+	//{ MODKEY,            	XK_Up,      			setcfact,       {.f = -0.25} },
+	//{ MODKEY,            	XK_Down,   			setcfact,       {.f = +0.25} },
 	{ MODKEY,            	XK_space,  			zoom,           {1} },
 	{ MODKEY,            	XK_Tab,    			view,           {0} },
 	{ MODKEY,	     	XK_q,      			killclient,     {0} },
@@ -132,6 +133,14 @@ static Key keys[] = {
  	{ MODKEY,            	XK_m,      			setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,            	XK_f,      			fullscreen,     {0} },
 	{ MODKEY|ControlMask,	XK_space,  			setlayout,      {0} },
+	//{ MODKEY,		XK_Down,			moveresize,	{.v = (int []){ 0, 25, 0, 0 }}},
+	//{ MODKEY,		XK_Up,				moveresize,	{.v = (int []){ 0, -25, 0, 0 }}},
+	//{ MODKEY,		XK_Right,			moveresize,	{.v = (int []){ 25, 0, 0, 0 }}},
+	//{ MODKEY,		XK_Left,			moveresize,	{.v = (int []){ -25, 0, 0, 0 }}},
+	//{ MODKEY|ShiftMask,	XK_Down,			moveresize,	{.v = (int []){ 0, 0, 0, 25 }}},
+	//{ MODKEY|ShiftMask,	XK_Up,				moveresize,	{.v = (int []){ 0, 0, 0, -25 }}},
+	//{ MODKEY|ShiftMask,	XK_Right,			moveresize,	{.v = (int []){ 0, 0, 25, 0 }}},
+	//{ MODKEY|ShiftMask,	XK_Left,			moveresize,	{.v = (int []){ 0, 0, -25, 0 }}},
 
 	// tags
 	TAGKEYS(             	XK_1,                      	0)
