@@ -74,13 +74,13 @@ static const char *firefox[] 		= { "/usr/bin/firefox", NULL };
 static const char *upvol[]   		= { "/usr/bin/pactl", "set-sink-volume", "0", "+5%", NULL };
 static const char *downvol[] 		= { "/usr/bin/pactl", "set-sink-volume", "0", "-5%", NULL };
 static const char *mutevol[] 		= { "/usr/bin/pactl", "set-sink-mute", "0", "toggle", NULL };
-static const char *upbright[] 		= { "/home/iodityra/.dwm/bin/backlight", "up", NULL };
-static const char *downbright[] 	= { "/home/iodityra/.dwm/bin/backlight", "down", NULL };
-static const char *maxbright[] 		= { "/home/iodityra/.dwm/bin/backlight", "max", NULL };
-static const char *minbright[] 		= { "/home/iodityra/.dwm/bin/backlight", "min", NULL };
-static const char *screenshot[] 	= { "/home/iodityra/.dwm/bin/scrshot", "reg", NULL };
-static const char *screenshotalt[] 	= { "/home/iodityra/.dwm/bin/scrshot", "alt", NULL };
-static const char *resolution[] 	= { "/home/iodityra/.dwm/bin/res", NULL };
+static const char *upbright[] 		= { "$HOME/.dwm/bin/backlight", "up", NULL };
+static const char *downbright[] 	= { "$HOME/.dwm/bin/backlight", "down", NULL };
+static const char *maxbright[] 		= { "$HOME/.dwm/bin/backlight", "max", NULL };
+static const char *minbright[] 		= { "$HOME/.dwm/bin/backlight", "min", NULL };
+static const char *screenshot[] 	= { "$HOME/.dwm/bin/scrshot", "reg", NULL };
+static const char *screenshotalt[] 	= { "$HOME/.dwm/bin/scrshot", "alt", NULL };
+static const char *resolution[] 	= { "$HOME/.dwm/bin/res", NULL };
 
 static Key keys[] = {
 	/* modifier          	key        			function        argument */
