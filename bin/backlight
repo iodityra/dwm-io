@@ -6,11 +6,11 @@ bdv=$(cat $bd)
 
 case $1 in
 	up)
-		if [ $bdv -gt 1400 ]
+		if [ $bdv -gt 802 ]
 		then
-			echo $(( 1500 )) > $bd
+			echo $(( 852 )) > $bd
 		else
-			echo $(( bdv + 100 )) > $bd
+			echo $(( bdv + 50 )) > $bd
 		fi
 		cat $bd
 	;;
@@ -19,12 +19,12 @@ case $1 in
 		then
 			echo $(( 1 )) > $bd
 		else
-			echo $(( bdv - 100 )) > $bd
+			echo $(( bdv - 50 )) > $bd
 		fi
 		cat $bd
 	;;
 	max)
-		echo $(( 1500 )) > $bd
+		echo $(( 852 )) > $bd
 		cat $bd
 	;;
 	min)
