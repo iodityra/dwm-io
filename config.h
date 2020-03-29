@@ -97,8 +97,8 @@ static Key keys[] = {
 	{ 0,		     	XF86XK_MonBrightnessDown, 	spawn,		{.v = downbright } },
 	{ ShiftMask,	     	XF86XK_MonBrightnessUp,	  	spawn,		{.v = maxbright } },
 	{ ShiftMask,	     	XF86XK_MonBrightnessDown, 	spawn,		{.v = minbright } },
-	{ 0,		     	XK_Print,  			spawn,	  	{.v = screenshot } },
-	{ ShiftMask,	     	XK_Print,  			spawn,		{.v = screenshotalt } },
+	{ MODKEY,		XK_s,  				spawn,	  	{.v = screenshot } },
+	{ MODKEY|ShiftMask,	XK_s,  				spawn,		{.v = screenshotalt } },
 	{ MODKEY|ShiftMask, 	XK_p, 				spawn,		{.v = resolution } },
 
 	// window management
